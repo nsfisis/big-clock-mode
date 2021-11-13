@@ -177,7 +177,7 @@ func main() {
 		}
 	}()
 
-	t := time.NewTimer(30 * time.Second)
+	t := time.NewTimer(1 * time.Second)
 	defer t.Stop()
 
 	prev := time.Now()
