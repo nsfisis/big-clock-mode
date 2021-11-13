@@ -118,6 +118,12 @@ func drawClock(scr tcell.Screen, now time.Time, bgStyle, clockStyle tcell.Style)
 	// ### ###   ### ### v
 	squareW := scrW / (17 + 2)
 	squareH := scrH / (5 + 2)
+	if squareH > squareW {
+		squareH = squareW
+	}
+	if squareW > squareH*3/2 {
+		squareW = squareH * 3 / 2
+	}
 	xOffset := (scrW - squareW*17) / 2
 	yOffset := (scrH - squareH*5) / 2
 
