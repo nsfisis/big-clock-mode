@@ -186,6 +186,7 @@ func main() {
 			return
 		case <-t.C:
 			drawClock(scr, time.Now(), bgStyle, clockStyle)
+			scr.Show()
 		}
 	}
 }
