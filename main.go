@@ -177,7 +177,7 @@ func main() {
 		}
 	}()
 
-	t := time.NewTimer(1 * time.Second)
+	t := time.NewTicker(1 * time.Second)
 	defer t.Stop()
 
 	prev := time.Now()
