@@ -180,13 +180,17 @@ func main() {
 	t := time.NewTimer(30 * time.Second)
 	defer t.Stop()
 
+	prev := time.Now()
 	for {
 		select {
 		case <-quitC:
 			return
-		case <-t.C:
-			drawClock(scr, time.Now(), bgStyle, clockStyle)
-			scr.Show()
+		case now := <-t.C:
+			if now.Minute() != prev.Minute() {
+				drawClock(scr, now, bgStyle, clockStyle)
+				scr.Show()
+				prev = now
+			}
 		}
 	}
 }
