@@ -2,6 +2,10 @@ BIN := big-clock-mode
 
 all: build
 
+.PHONY: run
+run: build
+	./$(BIN)
+
 .PHONY: build
 build: $(BIN)
 
