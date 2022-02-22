@@ -12,7 +12,7 @@ func drawSquare(scr tcell.Screen, xOffset, yOffset, w, h int, style tcell.Style)
 		x := xOffset + dx
 		for dy := 0; dy < h; dy++ {
 			y := yOffset + dy
-			scr.SetCell(x, y, style, ' ')
+			scr.SetContent(x, y, ' ', nil, style)
 		}
 	}
 }
