@@ -12,6 +12,10 @@ build: $(BIN)
 $(BIN): main.go
 	go build -o $(BIN)
 
+.PHONY: fmt
+fmt:
+	go fmt
+
 .PHONY: clean
 clean:
 	go clean
