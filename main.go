@@ -18,82 +18,83 @@ func drawSquare(scr tcell.Screen, xOffset, yOffset, w, h int, style tcell.Style)
 }
 
 func drawNumber(scr tcell.Screen, n, xOffset, yOffset, squareW, squareH int, style tcell.Style) {
-	defs := [...][15]bool{
+	defs := [...][15]rune{
 		{
-			true, true, true,
-			true, false, true,
-			true, false, true,
-			true, false, true,
-			true, true, true,
+			'#', '#', '#',
+			'#', ' ', '#',
+			'#', ' ', '#',
+			'#', ' ', '#',
+			'#', '#', '#',
 		},
 		{
-			false, false, true,
-			false, false, true,
-			false, false, true,
-			false, false, true,
-			false, false, true,
+			' ', ' ', '#',
+			' ', ' ', '#',
+			' ', ' ', '#',
+			' ', ' ', '#',
+			' ', ' ', '#',
 		},
 		{
-			true, true, true,
-			false, false, true,
-			true, true, true,
-			true, false, false,
-			true, true, true,
+			'#', '#', '#',
+			' ', ' ', '#',
+			'#', '#', '#',
+			'#', ' ', ' ',
+			'#', '#', '#',
 		},
 		{
-			true, true, true,
-			false, false, true,
-			true, true, true,
-			false, false, true,
-			true, true, true,
+			'#', '#', '#',
+			' ', ' ', '#',
+			'#', '#', '#',
+			' ', ' ', '#',
+			'#', '#', '#',
 		},
 		{
-			true, false, true,
-			true, false, true,
-			true, true, true,
-			false, false, true,
-			false, false, true,
+			'#', ' ', '#',
+			'#', ' ', '#',
+			'#', '#', '#',
+			' ', ' ', '#',
+			' ', ' ', '#',
 		},
 		{
-			true, true, true,
-			true, false, false,
-			true, true, true,
-			false, false, true,
-			true, true, true,
+			'#', '#', '#',
+			'#', ' ', ' ',
+			'#', '#', '#',
+			' ', ' ', '#',
+			'#', '#', '#',
 		},
 		{
-			true, true, true,
-			true, false, false,
-			true, true, true,
-			true, false, true,
-			true, true, true,
+			'#', '#', '#',
+			'#', ' ', ' ',
+			'#', '#', '#',
+			'#', ' ', '#',
+			'#', '#', '#',
 		},
 		{
-			true, true, true,
-			false, false, true,
-			false, false, true,
-			false, false, true,
-			false, false, true,
+			'#', '#', '#',
+			' ', ' ', '#',
+			' ', ' ', '#',
+			' ', ' ', '#',
+			' ', ' ', '#',
 		},
 		{
-			true, true, true,
-			true, false, true,
-			true, true, true,
-			true, false, true,
-			true, true, true,
+			'#', '#', '#',
+			'#', ' ', '#',
+			'#', '#', '#',
+			'#', ' ', '#',
+			'#', '#', '#',
 		},
 		{
-			true, true, true,
-			true, false, true,
-			true, true, true,
-			false, false, true,
-			true, true, true,
+			'#', '#', '#',
+			'#', ' ', '#',
+			'#', '#', '#',
+			' ', ' ', '#',
+			'#', '#', '#',
 		},
 	}
 
 	squares := defs[n]
-	for i, draw := range squares {
-		if !draw {
+	for i, cell := range squares {
+		willDraw := cell == '#'
+		if !willDraw {
 			continue
 		}
 		x := i % 3
